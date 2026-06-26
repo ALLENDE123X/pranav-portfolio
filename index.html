@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pranav Lende — Model</title>
+<meta name="description" content="Pranav Lende — commercial, lifestyle and fitness model based in San Francisco." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#EFEFEC;
+    --ink:#141417;
+    --mid:#6C6C72;
+    --faint:#9A9AA0;
+    --line:#D7D7D1;
+    --tile:#E4E4E0;
+    --shadow:rgba(20,20,23,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--ink);color:var(--paper)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;height:auto}
+  .mono{font-family:'JetBrains Mono',monospace;font-weight:400}
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 32px}
+
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;
+    transition:background .4s ease, border-color .4s ease, padding .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(239,239,236,.82);
+    backdrop-filter:saturate(140%) blur(12px);
+    -webkit-backdrop-filter:saturate(140%) blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:13px 32px;
+  }
+  header .id{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  header .id b{font-weight:500}
+  header nav{display:flex;gap:26px;align-items:center}
+  header nav a{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);transition:color .2s}
+  header nav a:hover{color:var(--ink)}
+  header nav a.cta{color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+  @media(max-width:640px){header nav a.nl{display:none}}
+
+  .hero{padding:148px 0 70px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:end}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-bottom:26px}
+  .hero h1{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+    font-size:clamp(54px,8.6vw,122px);line-height:.92;letter-spacing:-.025em;
+    margin-bottom:26px;
+  }
+  .hero h1 .l2{display:block;color:var(--ink)}
+  .lead{font-size:clamp(16px,1.7vw,19px);line-height:1.5;color:var(--ink);max-width:30ch;margin-bottom:34px}
+  .lead .dim{color:var(--mid)}
+
+  .spec{border-top:1px solid var(--ink);padding-top:14px;max-width:430px}
+  .spec-row{display:grid;grid-template-columns:104px 1fr;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+  .spec-row:last-child{border-bottom:none}
+  .spec-k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding-top:2px}
+  .spec-v{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.02em;color:var(--ink)}
+
+  .hero-portrait{position:relative}
+  .hero-portrait figure{overflow:hidden;background:var(--tile);box-shadow:0 24px 60px -28px var(--shadow)}
+  .hero-portrait img{aspect-ratio:4/5;object-fit:cover;object-position:center 22%}
+  .hero-portrait .tag{
+    position:absolute;left:14px;bottom:14px;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--paper);background:rgba(20,20,23,.62);backdrop-filter:blur(4px);
+    padding:5px 9px;
+  }
+  @media(max-width:860px){
+    .hero{padding:128px 0 48px}
+    .hero-grid{grid-template-columns:1fr;gap:40px;align-items:start}
+    .hero-portrait{max-width:420px}
+  }
+
+  section.block{padding:46px 0}
+  .seclabel{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1px solid var(--ink);padding-top:13px;margin-bottom:26px}
+  .seclabel h2{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+  .seclabel .count{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--faint);text-transform:uppercase}
+
+  .intro{padding:34px 0 8px}
+  .intro h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(26px,4vw,46px);letter-spacing:-.02em;line-height:1.02;max-width:18ch}
+  .intro p{margin-top:18px;color:var(--mid);max-width:46ch;font-size:15.5px}
+
+  .gal{column-gap:16px}
+  .gal.c4{column-count:3}
+  .gal.c2{column-count:2}
+  .tile{break-inside:avoid;margin-bottom:16px;overflow:hidden;background:var(--tile);position:relative;box-shadow:0 14px 34px -26px var(--shadow)}
+  .tile img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+  .tile:hover img{transform:scale(1.035)}
+  @media(max-width:980px){.gal.c4{column-count:2}}
+  @media(max-width:560px){.gal.c4,.gal.c2{column-count:1}.gal.c4.keep2{column-count:2;column-gap:10px}.gal.c4.keep2 .tile{margin-bottom:10px}}
+
+  .digitals{background:var(--ink);color:var(--paper);margin-top:30px}
+  .digitals .wrap{padding-top:54px;padding-bottom:58px}
+  .digitals .seclabel{border-top-color:var(--paper)}
+  .digitals .seclabel h2{color:var(--paper)}
+  .digitals .seclabel .count{color:#8A8A90}
+  .dig-note{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;color:#9A9AA0;margin:-8px 0 28px;line-height:1.7}
+  .dig-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .dig-grid .tile{background:#222226;box-shadow:none}
+  .dig-grid img{aspect-ratio:3/4;object-fit:cover}
+  @media(max-width:760px){.dig-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:440px){.dig-grid{grid-template-columns:repeat(2,1fr)}}
+
+  .contact{padding:96px 0 60px;text-align:center}
+  .contact .ek{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-bottom:22px}
+  .contact h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(44px,9vw,108px);line-height:.94;letter-spacing:-.03em;margin-bottom:34px}
+  .links{display:inline-flex;flex-direction:column;gap:0;border-top:1px solid var(--ink);min-width:min(440px,86vw)}
+  .links a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:17px 4px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.04em;transition:padding .25s ease,color .2s}
+  .links a .k{color:var(--faint);text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+  .links a .v{color:var(--ink)}
+  .links a:hover{padding-left:14px;padding-right:0}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 40px}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  footer .mono{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+    .rv{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <a class="id" href="#top"><b>Pranav Lende</b></a>
+  <nav>
+    <a class="nl" href="#work">Work</a>
+    <a class="nl" href="#digitals">Digitals</a>
+    <a class="cta" href="#contact">Get in touch</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap" id="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow rv">Commercial · Lifestyle · Fitness</div>
+        <h1 class="rv">Pranav<span class="l2">Lende</span></h1>
+        <p class="lead rv">Model based in San Francisco. <span class="dim">Available for commercial, e-commerce, lifestyle and fitness work — represented by no one, reachable by anyone.</span></p>
+        <div class="spec rv">
+          <div class="spec-row"><div class="spec-k">Height</div><div class="spec-v">5&#39;7&#34; · 170 cm</div></div>
+          <div class="spec-row"><div class="spec-k">Chest</div><div class="spec-v">&mdash;</div></div>
+          <div class="spec-row"><div class="spec-k">Waist</div><div class="spec-v">&mdash;</div></div>
+          <div class="spec-row"><div class="spec-k">Shoe</div><div class="spec-v">&mdash;</div></div>
+          <div class="spec-row"><div class="spec-k">Hair / Eyes</div><div class="spec-v">Black / Brown</div></div>
+          <div class="spec-row"><div class="spec-k">Based</div><div class="spec-v">San Francisco, CA</div></div>
+        </div>
+      </div>
+      <div class="hero-portrait rv">
+        <figure><img src="images/1-1.jpg" alt="Portrait of Pranav Lende" /></figure>
+        <span class="tag">SF · 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="work">
+    <div class="intro rv">
+      <h3>Range across the room, not just the frame.</h3>
+      <p>A self-directed first book — headshots, four wardrobe stories, and physique. Shot on a single wall in natural light to keep the read honest.</p>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <div class="seclabel rv"><h2>Portraits</h2><span class="count">Headshots</span></div>
+    <div class="gal c4 keep2">
+      <figure class="tile rv"><img src="images/1-1.jpg" alt="Portrait — smile" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/1-9.jpg" alt="Portrait — direct" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/1-2.jpg" alt="Portrait — three-quarter" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/1-3.jpg" alt="Portrait — three-quarter neutral" loading="lazy"/></figure>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <div class="seclabel rv"><h2>Varsity</h2><span class="count">Elevated</span></div>
+    <div class="gal c4">
+      <figure class="tile rv"><img src="images/2-1.jpg" alt="Varsity look" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/2-3.jpg" alt="Varsity look" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/2-4.jpg" alt="Varsity look" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/2-2.jpg" alt="Varsity look" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/2-5.jpg" alt="Varsity look" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/2-6.jpg" alt="Varsity look" loading="lazy"/></figure>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <div class="seclabel rv"><h2>Casual</h2><span class="count">Lifestyle</span></div>
+    <div class="gal c4">
+      <figure class="tile rv"><img src="images/3-1.jpg" alt="Casual lifestyle" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/3-3.jpg" alt="Casual lifestyle" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/3-4.jpg" alt="Casual lifestyle" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/3-2.jpg" alt="Casual lifestyle" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/3-6.jpg" alt="Casual lifestyle" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/3-5.jpg" alt="Casual lifestyle" loading="lazy"/></figure>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <div class="seclabel rv"><h2>Athletic</h2><span class="count">Activewear</span></div>
+    <div class="gal c4">
+      <figure class="tile rv"><img src="images/4-1.jpg" alt="Athletic wear" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/4-3.jpg" alt="Athletic wear" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/4-4.jpg" alt="Athletic wear" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/4-2.jpg" alt="Athletic wear" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/4-5.jpg" alt="Athletic wear" loading="lazy"/></figure>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <div class="seclabel rv"><h2>Studio</h2><span class="count">Physique</span></div>
+    <div class="gal c4">
+      <figure class="tile rv"><img src="images/5-1.jpg" alt="Physique — front" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/5-2.jpg" alt="Physique — full" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/5-3.jpg" alt="Physique — side" loading="lazy"/></figure>
+      <figure class="tile rv"><img src="images/5-4.jpg" alt="Physique — back" loading="lazy"/></figure>
+    </div>
+  </section>
+
+  <section class="digitals" id="digitals">
+    <div class="wrap">
+      <div class="seclabel rv"><h2>Digitals</h2><span class="count">Unretouched</span></div>
+      <div class="dig-note rv">No edits, no styling — the accurate reference set.<br/>Front · profile · full body, front / side / back. June 2026.</div>
+      <div class="dig-grid">
+        <figure class="tile rv"><img src="images/1-4.jpg" alt="Digital — front" loading="lazy"/></figure>
+        <figure class="tile rv"><img src="images/1-5.jpg" alt="Digital — profile" loading="lazy"/></figure>
+        <figure class="tile rv"><img src="images/1-8.jpg" alt="Digital — full body front" loading="lazy"/></figure>
+        <figure class="tile rv"><img src="images/1-6.jpg" alt="Digital — full body side" loading="lazy"/></figure>
+        <figure class="tile rv"><img src="images/1-7.jpg" alt="Digital — full body back" loading="lazy"/></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact wrap" id="contact">
+    <div class="ek rv">Available for bookings</div>
+    <h2 class="rv">Let&rsquo;s work.</h2>
+    <div class="links rv">
+      <a href="mailto:pranav.lende@email.com"><span class="k">Email</span><span class="v">pranav.lende@email.com</span></a>
+      <a href="https://instagram.com/pranavinno" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@pranavinno</span></a>
+      <a href="#top"><span class="k">Location</span><span class="v">San Francisco, CA</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">Pranav Lende</span>
+    <span class="mono">San Francisco</span>
+    <span class="mono">&copy; 2026</span>
+  </div>
+</footer>
+
+<script>
+  var hdr=document.getElementById('hdr');
+  var onScroll=function(){ if(window.scrollY>24){hdr.classList.add('scrolled')}else{hdr.classList.remove('scrolled')} };
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el,i){ el.style.transitionDelay=(Math.min(i%6,5)*40)+'ms'; io.observe(el); });
+  } else { rv.forEach(function(el){el.classList.add('in')}); }
+</script>
+</body>
+</html>
