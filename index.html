@@ -108,6 +108,21 @@
   @media(max-width:980px){.gal.c4{column-count:2}}
   @media(max-width:560px){.gal.c4,.gal.c2{column-count:1}.gal.c4.keep2{column-count:2;column-gap:10px}.gal.c4.keep2 .tile{margin-bottom:10px}}
 
+  .video-section{padding:46px 0}
+  .video-wrap{
+    max-width:400px;
+    margin:0 auto;
+  }
+  .video-wrap video{
+    width:100%;
+    display:block;
+    background:var(--ink);
+    box-shadow:0 24px 60px -28px var(--shadow);
+  }
+  @media(max-width:560px){
+    .video-wrap{max-width:100%}
+  }
+
   .digitals{background:var(--ink);color:var(--paper);margin-top:30px}
   .digitals .wrap{padding-top:54px;padding-bottom:58px}
   .digitals .seclabel{border-top-color:var(--paper)}
@@ -148,6 +163,7 @@
 <header id="hdr">
   <a class="id" href="#top"><b>Pranav Lende</b></a>
   <nav>
+    <a class="nl" href="#video">Video</a>
     <a class="nl" href="#work">Work</a>
     <a class="nl" href="#digitals">Digitals</a>
     <a class="cta" href="#contact">Get in touch</a>
@@ -159,13 +175,13 @@
   <section class="hero wrap" id="hero">
     <div class="hero-grid">
       <div class="hero-text">
-        <div class="eyebrow rv">Commercial · Lifestyle · Fitness</div>
+        <div class="eyebrow rv">Commercial &middot; Lifestyle &middot; Fitness</div>
         <h1 class="rv">Pranav<span class="l2">Lende</span></h1>
         <p class="lead rv">Model based in San Francisco with around 5k followers on Instagram. <span class="dim">Open to commercial, lifestyle, fitness, and ecommerce work. Not with an agency, so the easiest way to book me is a direct message.</span></p>
         <div class="spec rv">
-          <div class="spec-row"><div class="spec-k">Height</div><div class="spec-v">5&#39;8&#34; · 173 cm</div></div>
-          <div class="spec-row"><div class="spec-k">Chest</div><div class="spec-v">35&#34; · 89 cm</div></div>
-          <div class="spec-row"><div class="spec-k">Waist</div><div class="spec-v">27&#34; · 69 cm</div></div>
+          <div class="spec-row"><div class="spec-k">Height</div><div class="spec-v">5&#39;8&#34; &middot; 173 cm</div></div>
+          <div class="spec-row"><div class="spec-k">Chest</div><div class="spec-v">35&#34; &middot; 89 cm</div></div>
+          <div class="spec-row"><div class="spec-k">Waist</div><div class="spec-v">27&#34; &middot; 69 cm</div></div>
           <div class="spec-row"><div class="spec-k">Shoe</div><div class="spec-v">US 10</div></div>
           <div class="spec-row"><div class="spec-k">Hair / Eyes</div><div class="spec-v">Black / Brown</div></div>
           <div class="spec-row"><div class="spec-k">Based</div><div class="spec-v">San Francisco, CA</div></div>
@@ -176,7 +192,7 @@
       </div>
       <div class="hero-portrait rv">
         <figure><img src="images/1-1.jpg" alt="Portrait of Pranav Lende" /></figure>
-        <span class="tag">SF · 2026</span>
+        <span class="tag">SF &middot; 2026</span>
       </div>
     </div>
   </section>
@@ -185,6 +201,16 @@
     <div class="intro rv">
       <h3>Same guy, a few different looks.</h3>
       <p>My first portfolio. Headshots, four outfit changes, and physique, all shot on one wall in natural light to keep it honest.</p>
+    </div>
+  </section>
+
+  <section class="video-section wrap" id="video">
+    <div class="seclabel rv"><h2>Casting Video</h2><span class="count">Introduction</span></div>
+    <div class="video-wrap rv">
+      <video controls preload="metadata" poster="" playsinline>
+        <source src="images/casting-video.mp4" type="video/mp4" />
+        Your browser does not support video playback.
+      </video>
     </div>
   </section>
 
